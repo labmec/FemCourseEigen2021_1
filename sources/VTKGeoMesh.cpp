@@ -261,6 +261,7 @@ void VTKGeoMesh::PrintCMeshVTK(CompMesh *cmesh, int dim, const std::string &file
     for(auto cel:cmesh->GetElementVec())
     {
         gel = cel->GetGeoElement();
+        if(gel->Dimension() != dim) continue;
         MatrixDouble ParamCo = NodeCoordinates(gel->Type());
         int elNnodes = ParamCo.rows();
         
